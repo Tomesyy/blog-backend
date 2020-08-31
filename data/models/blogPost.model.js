@@ -3,15 +3,14 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const BlogPost = new Schema({
-    title: String,
-    body: String,
-    read_time: Number,
-    views: Number,
-    likes: Number
+    title: { type: String, required: true },
+    body: { type: String, required: true },
+    read_time: { type: Number, required: true },
+    views: { type: Number, default: 0 },
+    likes: { type: Number, default: 0 },
+    date: { type: Date, required: true}
 })
 
-const PostModel = mongoose.Model('Post', BlogPost);
+const PostModel = mongoose.model('Post', BlogPost);
 
-module.exports = {
-    PostModel
-}
+module.exports = PostModel
