@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const db_connections = require('./connections/db.connection');
 const adminRoutes = require('./routes/admin.routes');
+const userRoutes = require('./routes/user.routes');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use(URL_PREFIX, adminRoutes);
+app.use(URL_PREFIX, userRoutes);
 
 console.log(http.STATUS_CODES);
 server.listen(PORT, () => {

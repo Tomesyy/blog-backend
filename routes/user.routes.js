@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const adminController = require('../controllers/user.controller');
+const userController = require('../controllers/user.controller');
 
-
+router.get('/story', userController.getAllPosts);
+router.get('/story/:id', userController.getOnePost);
 
 
 module.exports = router;
