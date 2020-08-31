@@ -15,7 +15,7 @@ function connectToOnlineDB() {
 }
 
 function connectToLocalDB() {
-    return mongoose.connect(``, {
+    return mongoose.connect(`mongodb://127.0.0.1/Peace-blog`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
