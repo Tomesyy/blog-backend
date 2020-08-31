@@ -14,15 +14,33 @@ const getOnePost = async(id) => {
     return postModel.findById(id)
 }
 
+const getAllPost = async() => {
+    return postModel.find()
+}
+
 const deletePost = async(id) => {
     return postModel.findByIdAndDelete(id)
 }
 
+const incrementViews = async(id) => {
+    const details = await getOnePost(id);
+    const newNumber = details.views+1
+    await updatePost(id, {views: newNumber});
+}
+
+const incrementLikes = async(id) => {
+    const details = await getOnePost(id);
+    const newNumber = details.likes+1
+    await updatePost(id, {likes: newNumber});
+}
 
 
 module.exports = {
     createPost,
     updatePost,
     getOnePost,
-    deletePost
+    getAllPost,
+    deletePost,
+    incrementViews,
+    incrementLikes
 }
