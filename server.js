@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const db_connections = require('./connections/db.connection');
+const socketConnections = require('./socket');
 const adminRoutes = require('./routes/admin.routes');
 const userRoutes = require('./routes/user.routes');
 
@@ -24,7 +25,9 @@ app.use(bodyParser.json());
 app.use(URL_PREFIX, adminRoutes);
 app.use(URL_PREFIX, userRoutes);
 
-console.log(http.STATUS_CODES);
+//const io = socketConnections(server);
+
+//console.log(http.STATUS_CODES);
 server.listen(PORT, () => {
     console.log(`server listening on PORT ${PORT}`);
 })

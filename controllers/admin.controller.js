@@ -8,7 +8,7 @@ const createPost = async (req, res) => {
     data.read_time = stats.minutes;
     data.date = Date.now();
     const response = await db.createPost(data)
-    
+
     res.status(201).json({
         status: "success",
         message: "post created successfully",

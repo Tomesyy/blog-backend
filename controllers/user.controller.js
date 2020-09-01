@@ -34,8 +34,13 @@ const likePost = async (req, res) => {
     })
 }
 
+const paginatePost = async (req, res) => {
+
+}
+
 module.exports = {
     getAllPosts,
     viewPost,
-    likePost
+    likePost,
+    paginatePost
 }
