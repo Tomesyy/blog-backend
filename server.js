@@ -2,6 +2,7 @@ require('dotenv').config()
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
 
 const db_connections = require('./connections/db.connection');
 const socketConnections = require('./socket');
@@ -19,6 +20,7 @@ if(process.env.PORT) db_connections.connectToOnlineDB()
 else db_connections.connectToLocalDB()
 
 
+app.use(fileUpload());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 

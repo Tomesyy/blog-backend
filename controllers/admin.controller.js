@@ -1,5 +1,6 @@
 const db = require('../data/dbs.calls');
 const readingTime = require('reading-time');
+const { uploadImage } = require('../utils/imageUploader');
 
 const createPost = async (req, res) => {
     try {
@@ -8,15 +9,17 @@ const createPost = async (req, res) => {
         const stats = readingTime(body);
         data.read_time = stats.minutes;
         data.date = Date.now();
-        const response = await db.createPost(data)
+        data.image = uploadImage(req.files.image);
+        
+        // const response = await db.createPost(data)
 
-        res.status(201).json({
-            status: "success",
-            message: "post created successfully",
-            data: {
-                response
-            }
-        })
+        // res.status(201).json({
+        //     status: "success",
+        //     message: "post created successfully",
+        //     data: {
+        //         response
+        //     }
+        // })
     } catch(err){
         res.status(400).json({
             status: "error",

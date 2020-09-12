@@ -14,9 +14,11 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cloudinary": "^1.23.0",
     "dot-env": "0.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
     "mongoose": "^5.10.2",
     "reading-time": "^1.2.0",
     "socket.io": "^2.3.0"
