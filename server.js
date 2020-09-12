@@ -24,12 +24,12 @@ app.use(fileUpload());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use(URL_PREFIX, adminRoutes);
+app.use(`${URL_PREFIX}/admin`, adminRoutes);
 app.use(URL_PREFIX, userRoutes);
 
 //const io = socketConnections(server);
 
-//console.log(http.STATUS_CODES);
+console.log(http.STATUS_CODES);
 server.listen(PORT, () => {
     console.log(`server listening on PORT ${PORT}`);
 })
