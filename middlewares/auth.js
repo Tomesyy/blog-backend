@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const verifyAdmin = async (req, res, next) => {
     try {
         const {token} = req.body
-        const decoded = await jwt.verify(token, process.env.JWT_SECRET)
+        await jwt.verify(token, process.env.JWT_SECRET)
 
         next();
     } catch(err){
