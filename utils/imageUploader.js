@@ -5,7 +5,7 @@ const path = require('path');
 const { resolve } = require('path');
 
 cloudinary.config({ 
-    cloud_name: 'tomesyy', 
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
     api_key: process.env.CLOUDINARY_API_KEY, 
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
@@ -32,7 +32,7 @@ const uploadImage = async (file) => {
         })
         return result
     } catch (err) {
-        console.log(err)
+        throw new Error(err.message)
     }
     
 }
