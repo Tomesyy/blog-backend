@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 
 const db_connections = require('./connections/db.connection');
-const socketConnections = require('./socket');
+//const socketConnections = require('./socket');
 const adminRoutes = require('./routes/admin.routes');
 const userRoutes = require('./routes/user.routes');
 
@@ -29,7 +29,7 @@ app.use(URL_PREFIX, userRoutes);
 
 //const io = socketConnections(server);
 
-console.log(http.STATUS_CODES);
+//console.log(http.STATUS_CODES);
 server.listen(PORT, () => {
     console.log(`server listening on PORT ${PORT}`);
 })

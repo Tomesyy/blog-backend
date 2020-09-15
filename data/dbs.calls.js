@@ -2,7 +2,7 @@ const postModel = require('./models/blogPost.model');
 
 const createPost = (data) => {
     const newPost = new postModel({title: data.title, body: data.body,
-         read_time: data.read_time, date: data.date});
+         read_time: data.read_time, image: data.image, date: data.date});
     return newPost.save()
 }
 

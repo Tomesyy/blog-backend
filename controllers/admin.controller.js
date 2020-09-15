@@ -41,8 +41,9 @@ const createPost = async (req, res) => {
         const stats = readingTime(body);
         data.read_time = stats.minutes;
         data.date = Date.now();
-        //data.image = uploadImage(req.files.image); // complete uploader to return image url
-        
+        const result = await uploadImage(req.files.image); // complete uploader to return image url
+        data.image = result.url;
+
         const response = await db.createPost(data)
 
         res.status(201).json({
