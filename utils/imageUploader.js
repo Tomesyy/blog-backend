@@ -34,7 +34,8 @@ const uploadImage = async (file) => {
     } catch (err) {
         throw new Error(err.message)
     }
-    
+
+
 }
 
 module.exports = {
